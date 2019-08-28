@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{{ current_site.name }}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static  'css/reset.css' %}" type="text/css" media="screen">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="screen">
+    <link rel="alternate" type="application/atom+xml" title="Latest status updates." href="{% url 'feed' %}">
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <img id="logo" src="{% static 'images/logo.png'%}" alt="Logo">
+        <h1 id="title"><a href="/">{{ current_site.name }}</a></h1>
+      </div>
+      <div id="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+      <div id="push"></div>
+    </div>
+    <div id="footer">
+      <ul class="left">
+        <li id="icons">Icons by <a href="http://p.yusukekamiyamane.com/">Yusuke Kamiyamane</a></li>
+      </ul>
+      <ul class="right">
+        <li id="powered">Powered by <a href="http://github.com/infrascloudy/overseer">Overseer</a></li>
+      </ul>
+    </div>
+    {% block js %}
+    {% endblock %}
+  </body>
+</html>
